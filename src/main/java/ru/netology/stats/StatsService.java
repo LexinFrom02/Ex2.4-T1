@@ -1,9 +1,9 @@
 package ru.netology.stats;
 
 public class StatsService {
-    int[] salesByMonth = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+//    int[] salesByMonth = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-    public int salesAmount() {
+    public int salesAmount(int[] salesByMonth) {
         int salesAmount = 0;
         for (int i = 0; i < salesByMonth.length; i++) {
             salesAmount += salesByMonth[i];
@@ -11,15 +11,15 @@ public class StatsService {
         return salesAmount;
     }
 
-    public int averageAmount() {
-        int salesAmount = 0;
-        for (int i = 0; i < salesByMonth.length; i++) {
-            salesAmount += salesByMonth[i];
-        }
-        return salesAmount / 12;
+    public int averageAmount(int[] salesByMonth) {
+//        int salesAmount = 0;
+//        for (int i = 0; i < salesByMonth.length; i++) {
+//            salesAmount += salesByMonth[i];
+//        }
+        return salesAmount(salesByMonth) / 12;
     }
 
-    public int maxSales() {
+    public int maxSales(int[] salesByMonth) {
         int maxSalesMonth = 1;
         int base = salesByMonth[0];
         for (int i = 0; i < salesByMonth.length; i++)
@@ -30,7 +30,7 @@ public class StatsService {
         return maxSalesMonth;
     }
 
-    public int leastSales() {
+    public int leastSales(int[] salesByMonth) {
         int leastSalesMonth = 1;
         int base = salesByMonth[0];
         for (int i = 0; i < salesByMonth.length; i++)
@@ -41,8 +41,8 @@ public class StatsService {
         return leastSalesMonth;
     }
 
-    public int monthsLessThanAverageSales() {
-        int averageSales = averageAmount();
+    public int monthsLessThanAverageSales(int[] salesByMonth) {
+        int averageSales = averageAmount(salesByMonth);
         int lessCounter = 0;
         for (int i = 0; i < salesByMonth.length; i++) {
             if (salesByMonth[i] < averageSales) {
@@ -52,8 +52,8 @@ public class StatsService {
         return lessCounter;
     }
 
-    public int monthsMoreThanAverageSales() {
-        int averageSales = averageAmount();
+    public int monthsMoreThanAverageSales(int[] salesByMonth) {
+        int averageSales = averageAmount(salesByMonth);
         int moreCounter = 0;
         for (int i = 0; i < salesByMonth.length; i++) {
             if (salesByMonth[i] < averageSales) {
